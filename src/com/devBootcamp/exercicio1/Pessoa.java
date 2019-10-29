@@ -106,7 +106,7 @@ public class Pessoa {
 
     public void exibeTelefones(){
         for (Telefone telefone : telefones) {
-            System.out.println(telefone.getTipoTelefone() + ": " + telefone.getTelefone());
+            System.out.println(telefone.getTipoTelefone().getLabel() + ": " + telefone.getTelefone());
         }
     }
 
