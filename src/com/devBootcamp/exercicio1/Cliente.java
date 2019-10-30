@@ -57,8 +57,7 @@ public class Cliente {
     public void adicionaEndereco(Endereco end){
         if(end.getTipoEndereco().equals(TipoEndereco.ENTREGA)){
             for (Endereco item : enderecos) {
-                if(end.getTipoEndereco().equals(TipoEndereco.ENTREGA)
-                        && item.getTipoEndereco().equals(TipoEndereco.ENTREGA)){
+                if(item.getTipoEndereco().equals(TipoEndereco.ENTREGA)){
                     System.out.println("não possível incluir o endereço: ");
                     System.out.println("Rua " + end.getRua() + ", " + end.getNumero()
                             + ", Bairro: " + end.getBairro());

@@ -20,10 +20,6 @@ public class NotaFiscal {
         definirEndereco();
     }
 
-    public NotaFiscal(Integer id) {
-        this.id = id;
-    }
-
     public Integer getId() {
         return id;
     }
@@ -48,29 +44,12 @@ public class NotaFiscal {
         return enderecoEntrega;
     }
 
-    public void definirEndereco(){
-        for (Endereco endereco : cliente.getEnderecos()) {
-            if(endereco.getTipoEndereco().equals(TipoEndereco.ENTREGA)){
-                enderecoEntrega = endereco;
-                return;
-            }
-        }
-        System.out.println("Nenhum endereço de entrega encontrado!");
-    }
-
     public List<NotaFiscalItem> getNotaFiscalItem() {
         return notaFiscalItem;
     }
 
     public void setNotaFiscalItem(List<NotaFiscalItem> notaFiscalItem) {
         this.notaFiscalItem = notaFiscalItem;
-    }
-
-    public Double getTotal() {
-        for (NotaFiscalItem item : notaFiscalItem) {
-            total += item.getValorTotal();
-        }
-        return total;
     }
 
     @Override
@@ -86,6 +65,16 @@ public class NotaFiscal {
         return Objects.hash(id);
     }
 
+    public void definirEndereco(){
+        for (Endereco endereco : cliente.getEnderecos()) {
+            if(endereco.getTipoEndereco().equals(TipoEndereco.ENTREGA)){
+                enderecoEntrega = endereco;
+                return;
+            }
+        }
+        System.out.println("Nenhum endereço de entrega encontrado!");
+    }
+
     public void adicionaItemNF(NotaFiscalItem nfItem){
         for (NotaFiscalItem fiscalItem : notaFiscalItem) {
             if(fiscalItem.getProduto().getId().equals(nfItem.getProduto().getId())){
@@ -96,6 +85,13 @@ public class NotaFiscal {
             }
         }
         notaFiscalItem.add(nfItem);
+    }
+
+    public Double getTotal() {
+        for (NotaFiscalItem item : notaFiscalItem) {
+            total += item.getValorTotal();
+        }
+        return total;
     }
 
     public void exibeNota(){
