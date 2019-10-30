@@ -1,4 +1,4 @@
-package com.devBootcamp.exercicio1;
+package com.devBootcamp.exercicioModelo;
 
 public class Telefone {
     private Long id;

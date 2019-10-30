@@ -3,19 +3,22 @@ package com.devBootcamp.exercicio1;
 import java.util.Objects;
 
 public class Endereco {
-    private Long id;
-    private String rua;
-    private Integer numero;
-    private String bairro;
 
-    public Endereco(Long id, String rua, Integer numero, String bairro) {
+    private Integer id;
+    private String rua;
+    private String numero;
+    private String bairro;
+    private TipoEndereco tipoEndereco;
+
+    public Endereco(Integer id, String rua, String numero, String bairro, TipoEndereco tipoEndereco) {
         this.id = id;
         this.rua = rua;
         this.numero = numero;
         this.bairro = bairro;
+        this.tipoEndereco = tipoEndereco;
     }
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
@@ -23,12 +26,32 @@ public class Endereco {
         return rua;
     }
 
-    public Integer getNumero() {
+    public void setRua(String rua) {
+        this.rua = rua;
+    }
+
+    public String getNumero() {
         return numero;
+    }
+
+    public void setNumero(String numero) {
+        this.numero = numero;
     }
 
     public String getBairro() {
         return bairro;
+    }
+
+    public void setBairro(String bairro) {
+        this.bairro = bairro;
+    }
+
+    public TipoEndereco getTipoEndereco() {
+        return tipoEndereco;
+    }
+
+    public void setTipoEndereco(TipoEndereco tipoEndereco) {
+        this.tipoEndereco = tipoEndereco;
     }
 
     @Override
@@ -43,4 +66,5 @@ public class Endereco {
     public int hashCode() {
         return Objects.hash(id);
     }
+
 }

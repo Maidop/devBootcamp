@@ -1,54 +1,25 @@
 package com.devBootcamp.exercicio1;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
-
     public static void main(String[] args) {
-        dadosPessoa();
-    }
 
-    public static void dadosPessoa(){
-        List<Pessoa> pessoas = new ArrayList<>();
+        Cliente cliente = new Cliente(1, "Maikon", "05270331977");
+        cliente.getEnderecos().add(new Endereco(1, "José Fraron", "1500", "Fraron", TipoEndereco.COBRANCA));
+        cliente.getEnderecos().add(new Endereco(2, "José Tatto", "338", "Fraron", TipoEndereco.ENTREGA));
 
-        Pessoa pessoa = new Pessoa();
-        pessoa.setId(1L);
-        pessoa.setNome("Maikon");
-        pessoa.setSobrenome("Pscheidt");
-        pessoa.setCpf("05270331977");
-        pessoa.setEmail("maikon.pscheidt@gmail.com");
-        pessoa.setDataNascimento(LocalDate.of(1994,01,06));
-        pessoa.getEnderecos().add(new Endereco(1L, "José Tatto", 338, "Fraron"));
-        pessoa.getTelefones().add(new Telefone(1L,"46991402834",TipoTelefone.CELULAR));
+        Produto p1 = new Produto(1, "Café", 15.0, 1.50);
+        Produto p2 = new Produto(2, "Chocolate", 12.0, 2.50);
+        Produto p3 = new Produto(3, "Bala", 25.0, 0.10);
 
-        pessoas.add(pessoa);
+        NotaFiscal nf = new NotaFiscal(1, "12345", cliente);
 
-        Pessoa pessoa2 = new Pessoa();
-        pessoa2.setId(2L);
-        pessoa2.setNome("Fatima");
-        pessoa2.setSobrenome("Paslauski");
-        pessoa2.setCpf("78897684915");
-        pessoa2.setEmail("fatima.paslauski@gmail.com");
-        pessoa2.setDataNascimento(LocalDate.of(1970,04,27));
-        pessoa2.getEnderecos().add(new Endereco(2L, "Henrique Santos", 338, "Espigão do Bugre"));
-        pessoa2.getTelefones().add(new Telefone(2L,"47991385879",TipoTelefone.CELULAR));
-        pessoa2.getTelefones().add(new Telefone(3L,"47991768452",TipoTelefone.CELULAR));
+        nf.getNotaFiscalItem().add(new NotaFiscalItem(1, nf, p1, 2.0, 1.50));
+        nf.getNotaFiscalItem().add(new NotaFiscalItem(2, nf, p2, 1.0, 2.50));
+        nf.getNotaFiscalItem().add(new NotaFiscalItem(3, nf, p3, 10.0, 0.10));
 
-        pessoas.add(pessoa2);
-
-        for (Pessoa pessoax : pessoas) {
-            System.out.println("Nome: " + pessoax.getNome() + " " + pessoax.getSobrenome()
-                + "\nCPF: " + pessoax.getCpf()
-                + "\neMail: " + pessoax.getEmail()
-                + "\nData de Nascimento: " + pessoax.getDataNascimento());
-            System.out.println("\nEndereços: ");
-            pessoax.exibeEnderecos();
-            System.out.println("\nTelefones: ");
-            pessoax.exibeTelefones();
-            System.out.println("\n");
-        }
-
+        nf.exibeNota();
     }
 }

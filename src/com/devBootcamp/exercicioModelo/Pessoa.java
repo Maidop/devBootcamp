@@ -1,4 +1,4 @@
-package com.devBootcamp.exercicio1;
+package com.devBootcamp.exercicioModelo;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
