@@ -97,6 +97,7 @@ public class Carro {
 
     //Implemente o método acelera que aumenta a velocidade de 1 em 1 km/h(Não pode exceder a velocidade máxima)
     public void acelera(){
+        System.out.println("Chamada de acelera():   ");
         if(velocidadeAtual <= velocidadeMaxima){
             velocidadeAtual += 1;
             System.out.println("velocidade atual = " + velocidadeAtual + "Km/h");
@@ -107,12 +108,14 @@ public class Carro {
 
     //Implemente o método freia que para o carro – Velocidade = 0 km/h
     public void freia(){
+        System.out.println("Chamada de freia():   ");
         velocidadeAtual = 0.0;
         System.out.println("velocidade atual = " + velocidadeAtual + "Km/h");
     }
 
     //Implemete o método troca marcha(Não pode passar do número máximo);
     public void trocaMarcha(){
+        System.out.println("Chamada de trocaMarcha():   ");
         if(marchaAtual < nrMarcha){
             marchaAtual++;
             System.out.println("Marcha atual = " + marchaAtual);
@@ -122,6 +125,7 @@ public class Carro {
 
     //Implemente o método reduz a marcha(Não pode passar do número mínimo);
     public void reduzMarcha(){
+        System.out.println("Chamada de reduzMarcha():   ");
         if(marchaAtual > 1){
             marchaAtual--;
             System.out.println("Marcha atual = " + marchaAtual);
@@ -130,6 +134,7 @@ public class Carro {
 
     //A marcha ré(pode usar o valor 0) não pode ser engatada se  a velocidade for superior a 0 KM/h;
     public void marchaRe(){
+        System.out.println("Chamada de marchaRe():   ");
         if(velocidadeAtual > 0){
             System.out.println("Carro em movimento, necessário primeiro freiar o carro!");
         }else{
