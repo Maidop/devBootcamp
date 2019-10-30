@@ -86,11 +86,23 @@ public class NotaFiscal {
         return Objects.hash(id);
     }
 
+    public void adicionaItemNF(NotaFiscalItem nfItem){
+        for (NotaFiscalItem fiscalItem : notaFiscalItem) {
+            if(fiscalItem.getProduto().getId().equals(nfItem.getProduto().getId())){
+                System.out.println("Não foi possível adicionar o produto " + nfItem.getProduto().getDescricao()
+                                    + " pois o mesmo já se encontra na Nota Fiscal");
+                System.out.println();
+                return;
+            }
+        }
+        notaFiscalItem.add(nfItem);
+    }
+
     public void exibeNota(){
         System.out.println("Numero Nota: " + numeroNota);
         System.out.println("Cliente: " + cliente.getNome());
         System.out.println("Endereço de Entrega:");
-        System.out.println("Rua " + enderecoEntrega.getRua() + ", Numero: " + enderecoEntrega.getNumero()
+        System.out.println("Rua " + enderecoEntrega.getRua() + ", " + enderecoEntrega.getNumero()
             + ", Bairro: " + enderecoEntrega.getBairro());
         for (NotaFiscalItem fI : notaFiscalItem) {
             System.out.println(fI.getProduto().getDescricao() + " | " + fI.getValorUnitario() + " | "

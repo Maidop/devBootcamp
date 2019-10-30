@@ -41,10 +41,6 @@ public class Cliente {
         return enderecos;
     }
 
-    public void setEnderecos(List<Endereco> enderecos) {
-        this.enderecos = enderecos;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -56,5 +52,19 @@ public class Cliente {
     @Override
     public int hashCode() {
         return Objects.hash(id);
+    }
+
+    public void adicionaEndereco(Endereco end){
+        for (Endereco item : enderecos) {
+            if(item.getTipoEndereco().equals(TipoEndereco.ENTREGA)){
+                System.out.println("não possível incluir o endereço: ");
+                System.out.println("Rua " + end.getRua() + ", " + end.getNumero()
+                        + ", Bairro: " + end.getBairro());
+                System.out.println("Já existe um endereço de entrega cadastrado!");
+                System.out.println();
+                return;
+            }
+        }
+        enderecos.add(end);
     }
 }
