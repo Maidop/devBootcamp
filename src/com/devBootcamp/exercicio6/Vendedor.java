@@ -45,7 +45,7 @@ public class Vendedor extends Empregado {
         System.out.println();
         System.out.println("Salário base: " + super.getSalario());
         System.out.println("Total de vendas: " + produtosVendidos);
-        System.out.println("Porcentagem de comissão: " + comissaoVendas);
+        System.out.println("Total de comissão: " + comissaoVendas);
         System.out.println();
         System.out.println("Salário calculado do vendedor: " + pagamento);
     }

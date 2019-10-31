@@ -38,9 +38,6 @@ public class Gerente extends Empregado {
     public void setVendedores(List<Vendedor> vendedores) {
         this.vendedores = vendedores;
     }
-    //o salário de um Gerente é equivalente ao salário de um empregado usual acrescido da ajuda de custo,
-    // mais o valor referente ao percentual de comissão sobre as vendas de seus vendedores, menos os impostos)
-
 
     @Override
     public void calculaSalario() {
@@ -56,14 +53,11 @@ public class Gerente extends Empregado {
         pagamento = bruto - ( (bruto/100) * super.getImposto());
 
         System.out.println("Gerente: " + getNome());
-        System.out.println("CPF: " + super.getCpf());
-        System.out.println();
+        System.out.println("CPF: " + super.getCpf() + "\n");
         System.out.println("Salário base: " + super.getSalario());
         System.out.println("Ajuda de custo: " + ajudaCusto);
         System.out.println("Total de vendas: " + vendas);
-        System.out.println("Porcentagem de comissão: " + comissaoVendas);
-        System.out.println();
+        System.out.println("Total de comissão: " + comissaoVendas + "\n");
         System.out.println("Salário calculado do vendedor: " + pagamento);
-
     }
 }
