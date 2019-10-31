@@ -8,12 +8,12 @@ import java.util.Objects;
 public class Voo {
 
     private Integer id;
-    private String voo;
+    private Integer voo;
     private LocalDateTime dataVoo;
     private Integer maxPassageiros;
     private List<Integer> passageiros = new ArrayList<>();
 
-    public Voo(Integer id, String voo, LocalDateTime dataVoo, Integer maxPassageiros) {
+    public Voo(Integer id, Integer voo, LocalDateTime dataVoo, Integer maxPassageiros) {
         this.id = id;
         this.voo = voo;
         this.dataVoo = dataVoo;
@@ -28,19 +28,19 @@ public class Voo {
         this.id = id;
     }
 
-    public String getVoo() {
+    public Integer getVoo() {
         return voo;
     }
 
-    public void setVoo(String voo) {
+    public void setVoo(Integer voo) {
         this.voo = voo;
     }
 
-    public LocalDateTime getDataVoo() {
+    public LocalDateTime getData() {
         return dataVoo;
     }
 
-    public void setDataVoo(LocalDateTime dataVoo) {
+    public void setData(LocalDateTime dataVoo) {
         this.dataVoo = dataVoo;
     }
 
@@ -95,14 +95,15 @@ public class Voo {
 //    }
 
     //Verifica: verifica se o número do assento recebido como parâmetro está ocupado
-    public void verificaAcento(Integer valor){
+    public Boolean verificaAcento(Integer valor){
         for (Integer item : passageiros) {
             if(valor == item){
                 System.out.println("Acento já ocupado");
-                return;
+                return false;
             }
         }
         System.out.println("Acento está livre!");
+        return true;
     }
 
     //Ocupa: ocupa determinado assento do vôo, cujo número é recebido como parâmetro, e retorna verdadeiro se
@@ -121,6 +122,16 @@ public class Voo {
         Integer quantidade;
         quantidade = maxPassageiros - passageiros.size();
         System.out.println("O vôo possui " + quantidade + " acentos vagos!");
+    }
+
+    //Assentos Livres: retorna uma lista com os assentos disponíveis no vôo
+    public void acentosLivres() {
+        System.out.println("Acentos Livres!");
+        for (int i = 1; i < maxPassageiros; i++) {
+            if(verificaAcento(i)){
+                System.out.println(i);
+            }
+        }
     }
 
 }
