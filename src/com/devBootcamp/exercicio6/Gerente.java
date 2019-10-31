@@ -52,7 +52,7 @@ public class Gerente extends Empregado {
         bruto = super.getSalario() + ajudaCusto + comissaoVendas;
         pagamento = bruto - ( (bruto/100) * super.getImposto());
 
-        System.out.println("Gerente: " + getNome());
+        System.out.println("Nome: " + getNome());
         System.out.println("CPF: " + super.getCpf() + "\n");
         System.out.println("Salário base: " + super.getSalario());
         System.out.println("Ajuda de custo: " + ajudaCusto);

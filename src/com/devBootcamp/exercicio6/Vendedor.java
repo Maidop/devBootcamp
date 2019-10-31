@@ -41,12 +41,10 @@ public class Vendedor extends Empregado {
 
         pagamento = (base + comissaoVendas) - imposto;
         System.out.println("Nome: " + super.getNome());
-        System.out.println("CPF: " + super.getCpf());
-        System.out.println();
+        System.out.println("CPF: " + super.getCpf() + "\n");
         System.out.println("Salário base: " + super.getSalario());
         System.out.println("Total de vendas: " + produtosVendidos);
-        System.out.println("Total de comissão: " + comissaoVendas);
-        System.out.println();
+        System.out.println("Total de comissão: " + comissaoVendas + "\n");
         System.out.println("Salário calculado do vendedor: " + pagamento);
     }
 }

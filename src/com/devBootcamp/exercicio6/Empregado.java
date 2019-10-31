@@ -30,6 +30,9 @@ public class Empregado extends Pessoa {
     public void calculaSalario(){
         Double pagamento;
         pagamento = salario - ((salario/100) * imposto);
+        System.out.println("Nome: " + getNome());
+        System.out.println("CPF: " + super.getCpf() + "\n");
+        System.out.println("Salário base: " + salario);
         System.out.println("Salário calculado com desconto de impostos: " + pagamento);
     }
 
