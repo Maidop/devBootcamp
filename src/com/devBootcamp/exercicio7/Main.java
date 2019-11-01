@@ -18,6 +18,9 @@ public class Main {
                 ("Matheus", "Castilho", "12345678945", "matheus_castilho@gmail.com", 17);
         Pessoa p7 = new Pessoa
                 ("Jonathan", "Ferreira", "12345678945", "jonathan@gmail.com", 18);
+        Pessoa p8 = new Pessoa
+                ("Indugente", "Teste", "12345678945", "indugente@gmail.com", -1);
+
 
         grupoPessoas.adicionaLista(p1);
         grupoPessoas.adicionaLista(p2);
@@ -26,6 +29,7 @@ public class Main {
         grupoPessoas.adicionaLista(p5);
         grupoPessoas.adicionaLista(p6);
         grupoPessoas.adicionaLista(p7);
+        grupoPessoas.adicionaLista(p8);
 
         grupoPessoas.exibeMaiores();
         grupoPessoas.exibeMenores();
